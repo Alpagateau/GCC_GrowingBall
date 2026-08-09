@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://xgga3p8m3cq"]
+
+[ext_resource type="Script" uid="uid://b77oqkqh5rm7w" path="res://Scripts/ball.gd" id="1_d60mj"]
+[ext_resource type="Texture2D" uid="uid://bdjashxfoedgn" path="res://icon.svg" id="2_ij5cq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_otpid"]
+radius = 64.03124
+
+[node name="Ball" type="RigidBody2D" unique_id=1976487676]
+contact_monitor = true
+max_contacts_reported = 16
+script = ExtResource("1_d60mj")
+scale_mult = 0.1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=900814463]
+modulate = Color(1, 1, 0, 1)
+texture = ExtResource("2_ij5cq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1025376850]
+shape = SubResource("CircleShape2D_otpid")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

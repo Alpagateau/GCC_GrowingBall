@@ -1,0 +1,32 @@
+extends Node2D
+
+var original_pos : Vector2
+@export var ball_prefab : PackedScene
+var total_money : float = 0
+
+func _ready() -> void:
+	original_pos = position
+	$ChargingBar.is_full.connect(shake)
+	$ChargingBar.is_full.connect(spawn_ball)
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("click"):
+		var value := randf_range(0.5, 15.5)
+		total_money += value
+		print(total_money)
+		$ChargingBar.add_value(value)
+
+func spawn_ball():
+	var new_ball : Ball = ball_prefab.instantiate()
+	new_ball.position = $Sprite2D.position
+	add_child(new_ball)
+
+func shake():
+	var tween = create_tween()
+	for i in 8:
+		var offset := Vector2(
+			randf_range(-7.0, 7.0),
+			randf_range(-7.0, 7.0)
+		)
+		tween.tween_property(self, "position", original_pos + offset, 0.02)
+	tween.tween_property(self, "position", original_pos, 0.02)

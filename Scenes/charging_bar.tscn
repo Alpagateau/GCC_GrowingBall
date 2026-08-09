@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dboykm0mrelrb"]
+
+[ext_resource type="Script" uid="uid://byfuy3l46obiq" path="res://Scripts/charging_bar.gd" id="1_fjujv"]
+
+[node name="ChargingBar" type="Node2D" unique_id=1136227722 node_paths=PackedStringArray("bar")]
+script = ExtResource("1_fjujv")
+bar = NodePath("ProgressBar")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1591762564]
+offset_right = 50.0
+offset_bottom = 648.0
+value = 50.0
+fill_mode = 3
+show_percentage = false
