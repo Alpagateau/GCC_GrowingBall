@@ -18,7 +18,7 @@ func _process(_delta: float) -> void:
 
 func spawn_ball():
 	var new_ball : Ball = ball_prefab.instantiate()
-	new_ball.position = $Sprite2D.position
+	new_ball.position = $Spawner.position     
 	add_child(new_ball)
 
 func shake():

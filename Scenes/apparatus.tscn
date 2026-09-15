@@ -35,7 +35,7 @@ position = Vector2(-569.99994, -316.25)
 scale = Vector2(0.9999998, 0.9999998)
 speed_clamp = 0.4
 
-[node name="Background" type="Sprite2D" parent="." unique_id=682502985]
+[node name="Spawner" type="Sprite2D" parent="." unique_id=682502985]
 position = Vector2(259.99997, -483.74997)
 scale = Vector2(0.19999996, 0.19999996)
 texture = ExtResource("5_5i0ox")

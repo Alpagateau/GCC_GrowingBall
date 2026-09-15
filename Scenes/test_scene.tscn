@@ -5,4 +5,6 @@
 [node name="Test Scene" type="Node2D" unique_id=378414813]
 
 [node name="Apparatus" parent="." unique_id=2112918524 instance=ExtResource("1_3dogw")]
-position = Vector2(542, 326)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1095256883]
+zoom = Vector2(0.5, 0.5)
