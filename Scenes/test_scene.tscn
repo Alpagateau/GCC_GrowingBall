@@ -1,29 +1,8 @@
 [gd_scene format=3 uid="uid://cinvp6lgo35lr"]
 
-[ext_resource type="PackedScene" uid="uid://dboykm0mrelrb" path="res://Scenes/charging_bar.tscn" id="1_3dogw"]
-[ext_resource type="Script" uid="uid://clqeah4jao4e8" path="res://Scenes/test_apparatus.gd" id="1_hb2xm"]
-[ext_resource type="PackedScene" uid="uid://xgga3p8m3cq" path="res://Scenes/ball.tscn" id="2_ak5v8"]
-[ext_resource type="PackedScene" uid="uid://dkbfyqd838qsf" path="res://Scenes/arena.tscn" id="3_50ct6"]
-[ext_resource type="Texture2D" uid="uid://bdjashxfoedgn" path="res://icon.svg" id="4_hb2xm"]
+[ext_resource type="PackedScene" uid="uid://dd3b7obikakn4" path="res://Scenes/apparatus.tscn" id="1_3dogw"]
 
 [node name="Test Scene" type="Node2D" unique_id=378414813]
 
-[node name="Apparatus" type="Node2D" parent="." unique_id=223939208]
+[node name="Apparatus" parent="." unique_id=2112918524 instance=ExtResource("1_3dogw")]
 position = Vector2(542, 326)
-scale = Vector2(0.8, 0.8)
-script = ExtResource("1_hb2xm")
-ball_prefab = ExtResource("2_ak5v8")
-
-[node name="ChargingBar" parent="Apparatus" unique_id=1136227722 instance=ExtResource("1_3dogw")]
-position = Vector2(-330, -316.25)
-scale = Vector2(0.99999994, 0.99999994)
-speed_clamp = 0.4
-
-[node name="Sprite2D" type="Sprite2D" parent="Apparatus" unique_id=8985686]
-position = Vector2(151.25, -248.74998)
-scale = Vector2(0.19999999, 0.19999999)
-texture = ExtResource("4_hb2xm")
-
-[node name="Arena" parent="Apparatus" unique_id=251372804 instance=ExtResource("3_50ct6")]
-position = Vector2(-201.25, -241.25)
-scale = Vector2(57.405476, 37.327175)

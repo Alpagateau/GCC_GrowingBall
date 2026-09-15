@@ -13,9 +13,12 @@ func _ready() -> void:
 		var circle : CircleShape2D = $CollisionShape2D.shape.duplicate()
 		circle.radius = sqrt(value * scale_mult) * 64
 		$CollisionShape2D.shape  = circle
-		$Sprite2D.scale = Vector2.ONE * sqrt(value * scale_mult)
+		$Sprite2D.scale = Vector2.ONE * sqrt(value * scale_mult) * 0.5
 	)
 
+func _process(_delta: float) -> void:
+	if position.y > 1000:
+		queue_free()
 func _on_body_entered(body: Node) -> void:
 	if body is Ball:
 		var b : Ball = body
