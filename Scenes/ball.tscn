@@ -3,26 +3,48 @@
 [ext_resource type="Script" uid="uid://b77oqkqh5rm7w" path="res://Scripts/ball.gd" id="1_d60mj"]
 [ext_resource type="Shader" uid="uid://bfulpa3m81sxp" path="res://Shaders/ball.gdshader" id="2_376qj"]
 [ext_resource type="Texture2D" uid="uid://by3xtlfsfac8d" path="res://Images/super_ball.png" id="2_ij5cq"]
+[ext_resource type="Shader" uid="uid://b1t0twdw6qu11" path="res://Shaders/hallo.gdshader" id="4_vblhy"]
+[ext_resource type="Texture2D" uid="uid://bf5b65n8usuba" path="res://Images/power.png" id="4_yk4cr"]
+[ext_resource type="Texture2D" uid="uid://bdjashxfoedgn" path="res://icon.svg" id="5_31idh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_376qj"]
 shader = ExtResource("2_376qj")
 shader_parameter/color = Color(1, 0, 0, 1)
 shader_parameter/gold = Color(0.9418873, 0.94188714, 3.85046e-06, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kjfgv"]
+shader = ExtResource("4_vblhy")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_otpid"]
 resource_local_to_scene = true
 radius = 64.03124
 
-[node name="Ball" type="RigidBody2D" unique_id=1976487676]
+[node name="Ball" type="RigidBody2D" unique_id=1976487676 node_paths=PackedStringArray("low_sprite", "high_sprite")]
 contact_monitor = true
 max_contacts_reported = 16
 script = ExtResource("1_d60mj")
 scale_mult = 0.1
+low_sprite = NodePath("Sprite2D")
+high_sprite = NodePath("Sprite2D2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=900814463]
+visible = false
 material = SubResource("ShaderMaterial_376qj")
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_ij5cq")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=874617699]
+z_index = 1
+material = SubResource("ShaderMaterial_kjfgv")
+scale = Vector2(2, 2)
+texture = ExtResource("5_31idh")
+region_rect = Rect2(268.21515, 12.397339, 251.23969, 279.30276)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D2" unique_id=530081239]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_yk4cr")
+region_enabled = true
+region_rect = Rect2(275, 22.900015, 234.30011, 269.50006)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1025376850]
 shape = SubResource("CircleShape2D_otpid")

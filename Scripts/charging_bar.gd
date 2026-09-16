@@ -16,14 +16,14 @@ func _process(delta: float) -> void:
 		goal -= 10
 		is_full.emit()
 		
-	var addition : float = (goal - current) * delta * speed
-	if addition >= proximity_clamp:
-		addition *=  (goal - current)
-	if addition >= speed_clamp:
-		addition = speed_clamp
+	var addition : float = ((goal - current)**1.4) * delta * speed
+	#if addition >= proximity_clamp:
+	#	addition *=  (goal - current)
+	#if addition >= speed_clamp:
+	#	addition = speed_clamp
 	current += addition
 	bar.value = current * 10
 	pass
 
 func add_value(v : float):
-	goal += v
+	goal += abs(v)

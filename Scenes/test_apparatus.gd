@@ -13,7 +13,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("click"):
 		var value := randf_range(0.5, 15.5)
 		total_money += value
-		print(total_money)
+		#print(total_money)
 		$ChargingBar.add_value(value)
 
 func spawn_ball():
@@ -23,10 +23,10 @@ func spawn_ball():
 
 func shake():
 	var tween = create_tween()
-	for i in 8:
+	for i in 12:
 		var offset := Vector2(
-			randf_range(-7.0, 7.0),
-			randf_range(-7.0, 7.0)
+			randf_range(-10.0, 10.0),
+			randf_range(-10.0, 10.0)
 		)
 		tween.tween_property(self, "position", original_pos + offset, 0.02)
 	tween.tween_property(self, "position", original_pos, 0.02)

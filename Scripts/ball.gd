@@ -3,17 +3,29 @@ class_name Ball
 
 @export var value : int = 1
 @export var scale_mult : float = 0.4
+
+@export var low_sprite : Sprite2D
+@export var high_sprite : Sprite2D
+
 var can_combine = true
 
 func _ready() -> void:
 	var tween = create_tween()
 	scale = Vector2.ONE * 0.0001
-	tween.tween_property(self, "scale", Vector2.ONE * sqrt(value * scale_mult), 0.2)
+	var new_scale = sqrt(value * scale_mult)
+	low_sprite.show()
+	high_sprite.hide()
+	if value > 16 : 
+		new_scale = sqrt((value / 16.0) * scale_mult)
+		low_sprite.hide()
+		high_sprite.show()
+	tween.tween_property(self, "scale", Vector2.ONE * new_scale * 0.5, 0.2)
 	tween.finished.connect(func():
 		var circle : CircleShape2D = $CollisionShape2D.shape.duplicate()
-		circle.radius = sqrt(value * scale_mult) * 64
+		circle.radius = new_scale * 64
 		$CollisionShape2D.shape  = circle
-		$Sprite2D.scale = Vector2.ONE * sqrt(value * scale_mult) * 0.5
+		low_sprite.scale = Vector2.ONE * new_scale * 0.5
+		high_sprite.scale = Vector2.ONE * new_scale * 4   
 	)
 
 func _process(_delta: float) -> void:

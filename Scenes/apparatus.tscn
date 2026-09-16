@@ -33,7 +33,8 @@ texture = ExtResource("7_pqdvx")
 [node name="ChargingBar" parent="." unique_id=1136227722 instance=ExtResource("4_titcl")]
 position = Vector2(-569.99994, -316.25)
 scale = Vector2(0.9999998, 0.9999998)
-speed_clamp = 0.4
+speed_clamp = 0.6
+speed = 1.0
 
 [node name="Spawner" type="Sprite2D" parent="." unique_id=682502985]
 position = Vector2(259.99997, -483.74997)
