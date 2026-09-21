@@ -5,7 +5,7 @@ var original_pos : Vector2
 var total_money : float = 0
 
 func _ready() -> void:
-	original_pos = position
+	
 	$ChargingBar.is_full.connect(shake)
 	$ChargingBar.is_full.connect(spawn_ball)
 
@@ -22,6 +22,7 @@ func spawn_ball():
 	add_child(new_ball)
 
 func shake():
+	original_pos = position
 	var tween = create_tween()
 	for i in 12:
 		var offset := Vector2(

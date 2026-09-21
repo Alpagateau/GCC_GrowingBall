@@ -1,26 +1,34 @@
 [gd_scene format=3 uid="uid://ckyhsbkrcgy2t"]
 
+[ext_resource type="PackedScene" uid="uid://dtwbo0vudpnfq" path="res://Scenes/formatted.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dd3b7obikakn4" path="res://Scenes/apparatus.tscn" id="1_ig7tw"]
 
-[node name="Main" type="Node2D" unique_id=1744649959]
-
-[node name="Apparatus" parent="." unique_id=2112918524 instance=ExtResource("1_ig7tw")]
-position = Vector2(-1345.9999, -419.99997)
+[node name="Main" type="Node2D" unique_id=174194511]
 
 [node name="Apparatus2" parent="." unique_id=535516812 instance=ExtResource("1_ig7tw")]
-position = Vector2(0.00012207031, -424.99997)
+visible = false
+position = Vector2(576, 324)
+
+[node name="Apparatus" parent="." unique_id=2112918524 instance=ExtResource("1_ig7tw")]
+visible = false
+position = Vector2(576, 324)
 
 [node name="Apparatus3" parent="." unique_id=504525527 instance=ExtResource("1_ig7tw")]
-position = Vector2(1339.0001, -418.99997)
+visible = false
+position = Vector2(576, 324)
 
 [node name="Apparatus4" parent="." unique_id=1473441458 instance=ExtResource("1_ig7tw")]
-position = Vector2(-1345.9999, 461.00003)
+visible = false
+position = Vector2(576, 324)
 
 [node name="Apparatus5" parent="." unique_id=154377546 instance=ExtResource("1_ig7tw")]
-position = Vector2(18.000122, 474.00003)
+visible = false
+position = Vector2(576, 324)
 
 [node name="Apparatus6" parent="." unique_id=244864323 instance=ExtResource("1_ig7tw")]
-position = Vector2(1351.0001, 455.00003)
+visible = false
+position = Vector2(576, 324)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=173550193]
-zoom = Vector2(0.2, 0.2)
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=106027916]
+
+[node name="Formatter" parent="CanvasLayer" unique_id=2104910193 instance=ExtResource("1_0xm2m")]

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dyr75dbfx8do"]
+
+[ext_resource type="Script" uid="uid://qhu4p8g3hujj" path="res://Scripts/formatter.gd" id="1_gwfc3"]
+
+[node name="Formatter" type="Container" unique_id=877622857]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gwfc3")
+metadata/_custom_type_script = "uid://qhu4p8g3hujj"
