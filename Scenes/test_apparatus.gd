@@ -1,11 +1,13 @@
 extends Node2D
+class_name Apparatus
 
 var original_pos : Vector2
 @export var ball_prefab : PackedScene
 var total_money : float = 0
 
+var current_focuse_amout : float = 0
+
 func _ready() -> void:
-	
 	$ChargingBar.is_full.connect(shake)
 	$ChargingBar.is_full.connect(spawn_ball)
 
@@ -31,3 +33,7 @@ func shake():
 		)
 		tween.tween_property(self, "position", original_pos + offset, 0.02)
 	tween.tween_property(self, "position", original_pos, 0.02)
+
+func _update_focus_amout(t : float):
+	$Camera2D.zoom = Vector2.ONE * ((1 - t) * 0.3 + t * 0.6)
+	

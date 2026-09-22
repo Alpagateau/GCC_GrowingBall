@@ -4,6 +4,24 @@ class_name Formatter
 
 @export var lines : int = 2
 
+@warning_ignore("unused_signal")
+signal request_focus(n : Control)
+
+signal focus_started
+signal focus_ended
+
+#focus data
+var current_focus : Control = null
+var original_rect : Rect2 
+
+func _process(_delta: float) -> void:
+	if Input.is_key_pressed(KEY_A):
+		if current_focus == null:
+			_start_focus(get_children()[randi_range(0, get_child_count()-1)])
+	if Input.is_key_pressed(KEY_B):
+		if current_focus != null:
+			_stop_focus()
+
 func _notification(what):
 	if what == NOTIFICATION_SORT_CHILDREN:
 		# Must re-sort the children
@@ -32,4 +50,52 @@ func _sort_children():
 			r.position = new_rect.position + Vector2.RIGHT * new_rect.size.x * x + Vector2.DOWN * new_rect.size.y * line
 			rects += [r]
 	for i in range(len(children)):
-		fit_child_in_rect(children[i], rects[i])
+		if children[i] != current_focus:
+			fit_child_in_rect(children[i], rects[i])
+
+func _start_focus(n : Control):
+	if n == null: return
+	current_focus = n
+	current_focus.z_index = 100
+	print("current focus : ", current_focus)
+	original_rect = n.get_rect()
+	print("og rect", original_rect)
+	
+	if current_focus != null:
+		var tween = create_tween()
+		tween.tween_method(
+			(func(t : float):
+				var new_rect = original_rect
+				new_rect.position = (1 - t)  * original_rect.position
+				new_rect.size = (1 - t) * original_rect.size + t * size
+				if current_focus != null:
+					fit_child_in_rect(current_focus, new_rect)
+					if current_focus is Focusable:
+						current_focus._update_focus_amout(t)
+				), 0.0, 1.0, 1
+		)
+		tween.tween_callback(focus_started.emit)
+	pass
+	
+func _stop_focus():
+	if current_focus == null : return
+	var tween = create_tween()
+	tween.tween_method(
+			(func(t : float):
+				var new_rect = original_rect
+				new_rect.position = (1 - t)  * original_rect.position
+				new_rect.size = (1 - t) * original_rect.size + t * size
+				if current_focus != null:
+					fit_child_in_rect(current_focus, new_rect)
+					if current_focus is Focusable:
+						current_focus._update_focus_amout(t)
+				), 1.0, 0.0, 1
+		)
+	tween.tween_callback(
+		(func(): 
+			if current_focus != null:
+				current_focus.z_index = 0
+			focus_ended.emit()))
+		
+	tween.tween_callback((func(): current_focus = null))
+	pass

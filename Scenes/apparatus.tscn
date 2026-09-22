@@ -21,6 +21,10 @@ scale = Vector2(0.8, 0.8)
 script = ExtResource("1_0210a")
 ball_prefab = ExtResource("2_pqdvx")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=870962571]
+scale = Vector2(0.99999994, 0.99999994)
+zoom = Vector2(0.3, 0.3)
+
 [node name="ArenaBg" type="Sprite2D" parent="." unique_id=1216336849]
 modulate = Color(0.24236244, 0.24236244, 0.24236241, 1)
 scale = Vector2(0.99999976, 0.99999976)

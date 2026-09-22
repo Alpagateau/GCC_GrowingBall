@@ -1,34 +1,24 @@
 [gd_scene format=3 uid="uid://ckyhsbkrcgy2t"]
 
 [ext_resource type="PackedScene" uid="uid://dtwbo0vudpnfq" path="res://Scenes/formatted.tscn" id="1_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://dd3b7obikakn4" path="res://Scenes/apparatus.tscn" id="1_ig7tw"]
 
 [node name="Main" type="Node2D" unique_id=174194511]
 
-[node name="Apparatus2" parent="." unique_id=535516812 instance=ExtResource("1_ig7tw")]
-visible = false
-position = Vector2(576, 324)
-
-[node name="Apparatus" parent="." unique_id=2112918524 instance=ExtResource("1_ig7tw")]
-visible = false
-position = Vector2(576, 324)
-
-[node name="Apparatus3" parent="." unique_id=504525527 instance=ExtResource("1_ig7tw")]
-visible = false
-position = Vector2(576, 324)
-
-[node name="Apparatus4" parent="." unique_id=1473441458 instance=ExtResource("1_ig7tw")]
-visible = false
-position = Vector2(576, 324)
-
-[node name="Apparatus5" parent="." unique_id=154377546 instance=ExtResource("1_ig7tw")]
-visible = false
-position = Vector2(576, 324)
-
-[node name="Apparatus6" parent="." unique_id=244864323 instance=ExtResource("1_ig7tw")]
-visible = false
-position = Vector2(576, 324)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=106027916]
 
-[node name="Formatter" parent="CanvasLayer" unique_id=2104910193 instance=ExtResource("1_0xm2m")]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=351704019]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Formatter" parent="CanvasLayer/VBoxContainer" unique_id=2104910193 instance=ExtResource("1_0xm2m")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1876751496]
+layout_mode = 2
+text = "Hello World"
