@@ -4,15 +4,26 @@ class_name Formatter
 
 @export var lines : int = 2
 
-@warning_ignore("unused_signal")
-signal request_focus(n : Control)
-
 signal focus_started
 signal focus_ended
 
 #focus data
 var current_focus : Control = null
 var original_rect : Rect2 
+@export var zoom_timer : Timer
+
+func _ready() -> void:
+	Api.zoom_request.connect(_on_zoom_request)
+	zoom_timer.timeout.connect(_stop_focus)
+
+func _on_zoom_request(n : Node, _filliere : String):
+	if current_focus != null:
+		return
+	
+	_start_focus(n)
+	zoom_timer.wait_time = randf_range(6, 15)
+	zoom_timer.start()
+	
 
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint(): return
@@ -30,7 +41,7 @@ func _notification(what):
 
 func _sort_children():
 	print("Sorting children")
-	var children : Array[Node] = get_children()
+	var children : Array[Node] = get_children().filter(func(n : Node): return n is Control)
 	var children_per_lines : Array[int] = []
 	var base_cpl : int = int(floor( float(len(children)) / float(lines) ))
 	var l : int = len(children)

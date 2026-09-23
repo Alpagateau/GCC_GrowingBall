@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://8a5tb8wavspx"]
+
+[ext_resource type="Script" uid="uid://b7agd4uhxyhi7" path="res://Scripts/chauve.gd" id="1_08yog"]
+[ext_resource type="Texture2D" uid="uid://sm1psa01vwgn" path="res://Images/chauve_n1_body.png" id="1_a8pox"]
+[ext_resource type="Texture2D" uid="uid://y1mmpth0b7j5" path="res://Images/chauve_n1_head.png" id="2_08yog"]
+
+[node name="ChauveN1" type="Node2D" unique_id=1866962663 node_paths=PackedStringArray("label")]
+script = ExtResource("1_08yog")
+label = NodePath("ChauveVoix/VBoxContainer/CenterContainer/Label")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=382807509]
+position = Vector2(214, 579)
+texture = ExtResource("1_a8pox")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=58351426]
+position = Vector2(143, 296)
+texture = ExtResource("2_08yog")
+offset = Vector2(70, -60)
+
+[node name="ChauveVoix" type="CanvasLayer" parent="." unique_id=1840292663]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChauveVoix" unique_id=622241176]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChauveVoix/VBoxContainer" unique_id=580472141]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="ChauveVoix/VBoxContainer" unique_id=762148359]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="ChauveVoix/VBoxContainer/CenterContainer" unique_id=1033197113]
+layout_mode = 2
+text = "Hello ! I am MecChauve Numero 1 !!!
+Matmeca, matmeca, matmeca , QUI CA "
+
+[node name="Timer" type="Timer" parent="." unique_id=29378041]
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="." unique_id=1246780235]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

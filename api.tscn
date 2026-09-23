@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://psdm74we03g3"]
+
+[ext_resource type="Script" uid="uid://dbh7b21kby1ge" path="res://api.gd" id="1_fqfjd"]
+
+[node name="API" type="Node" unique_id=37439577]
+script = ExtResource("1_fqfjd")

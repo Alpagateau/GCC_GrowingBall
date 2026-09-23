@@ -34,6 +34,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stream = ExtResource("7_kq0j3")
+volume_db = -80.0
 autoplay = true
 expand = true
 loop = true
@@ -43,7 +44,7 @@ scale = Vector2(0.99999994, 0.99999994)
 zoom = Vector2(0.3, 0.3)
 
 [node name="ArenaBg" type="Sprite2D" parent="." unique_id=1216336849]
-modulate = Color(0.24236244, 0.24236244, 0.24236241, 1)
+modulate = Color(0.24313726, 0.24313726, 0.24313726, 0.5058824)
 scale = Vector2(0.99999976, 0.99999976)
 texture = ExtResource("3_kq0j3")
 
@@ -88,3 +89,9 @@ shape = SubResource("RectangleShape2D_pqdvx")
 position = Vector2(-219.99998, -492.50003)
 scale = Vector2(0.9999983, 0.9999983)
 shape = SubResource("RectangleShape2D_pqdvx")
+
+[node name="Timer" type="Timer" parent="." unique_id=199005240]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

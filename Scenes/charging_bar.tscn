@@ -4,6 +4,7 @@
 
 [node name="ChargingBar" type="Node2D" unique_id=1136227722 node_paths=PackedStringArray("bar")]
 script = ExtResource("1_fjujv")
+ball_price = 1.0
 bar = NodePath("ProgressBar")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=1591762564]

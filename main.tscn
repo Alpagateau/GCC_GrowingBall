@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://ckyhsbkrcgy2t"]
 
 [ext_resource type="PackedScene" uid="uid://dtwbo0vudpnfq" path="res://Scenes/formatted.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://8a5tb8wavspx" path="res://chauve.tscn" id="2_0xm2m"]
 
 [node name="Main" type="Node2D" unique_id=174194511]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=106027916]
+layer = -1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=351704019]
 anchors_preset = 15
@@ -15,10 +17,25 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Formatter" parent="CanvasLayer/VBoxContainer" unique_id=2104910193 instance=ExtResource("1_0xm2m")]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer" unique_id=1476333399]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=2001489113]
+layout_mode = 2
+text = "Hello World !!
+This is here as a padding"
+
+[node name="Formatter" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=2104910193 instance=ExtResource("1_0xm2m")]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1876751496]
 layout_mode = 2
 text = "Hello World"
+
+[node name="ChauveN1" parent="." unique_id=1866962663 node_paths=PackedStringArray("formatter") instance=ExtResource("2_0xm2m")]
+position = Vector2(-28.999998, 207.99998)
+scale = Vector2(0.7, 0.7)
+formatter = NodePath("../CanvasLayer/VBoxContainer/HBoxContainer/Formatter")
