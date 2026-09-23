@@ -8,8 +8,10 @@ var total_money : float = 0
 var current_focuse_amout : float = 0
 
 func _ready() -> void:
+	original_pos = position
 	$ChargingBar.is_full.connect(shake)
 	$ChargingBar.is_full.connect(spawn_ball)
+	$CanvasLayer/VideoStreamPlayer.speed_scale = randf_range(0.8, 1.7)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("click"):
@@ -24,7 +26,7 @@ func spawn_ball():
 	add_child(new_ball)
 
 func shake():
-	original_pos = position
+	
 	var tween = create_tween()
 	for i in 12:
 		var offset := Vector2(

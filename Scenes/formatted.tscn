@@ -3,6 +3,11 @@
 [ext_resource type="Script" uid="uid://qhu4p8g3hujj" path="res://Scripts/formatter.gd" id="1_m4fqn"]
 [ext_resource type="PackedScene" uid="uid://dd3b7obikakn4" path="res://Scenes/apparatus.tscn" id="2_kmerg"]
 [ext_resource type="Script" uid="uid://b2b24aak3sq60" path="res://Scripts/Subview.gd" id="3_efad5"]
+[ext_resource type="PackedScene" uid="uid://cp460rnoxogl4" path="res://Scenes/ball_yellow.tscn" id="4_jg7yc"]
+[ext_resource type="PackedScene" uid="uid://br7dyl3ts807e" path="res://Scenes/ball_green.tscn" id="5_t28bb"]
+[ext_resource type="PackedScene" uid="uid://navxefauf6g5" path="res://Scenes/ball_blue.tscn" id="6_5lmb2"]
+[ext_resource type="PackedScene" uid="uid://beup00kyu2x3e" path="res://Scenes/ball_pink.tscn" id="7_i2s1c"]
+[ext_resource type="PackedScene" uid="uid://bitbkn555u54c" path="res://Scenes/ball_mauve.tscn" id="8_slq1j"]
 
 [node name="Formatter" type="Container" unique_id=2104910193]
 anchors_preset = 15
@@ -22,7 +27,7 @@ apparatus = NodePath("SubViewport/Apparatus")
 
 [node name="SubViewport" type="SubViewport" parent="Subview" unique_id=799321375]
 handle_input_locally = false
-size = Vector2i(1152, 648)
+size = Vector2i(384, 324)
 render_target_update_mode = 4
 
 [node name="Apparatus" parent="Subview/SubViewport" unique_id=849921152 instance=ExtResource("2_kmerg")]
@@ -39,6 +44,7 @@ size = Vector2i(384, 324)
 render_target_update_mode = 4
 
 [node name="Apparatus" parent="Subview2/SubViewport" unique_id=2112918524 instance=ExtResource("2_kmerg")]
+ball_prefab = ExtResource("4_jg7yc")
 
 [node name="Subview3" type="SubViewportContainer" parent="." unique_id=163120316 node_paths=PackedStringArray("apparatus")]
 layout_mode = 2
@@ -52,6 +58,7 @@ size = Vector2i(384, 324)
 render_target_update_mode = 4
 
 [node name="Apparatus" parent="Subview3/SubViewport" unique_id=828452315 instance=ExtResource("2_kmerg")]
+ball_prefab = ExtResource("5_t28bb")
 
 [node name="Subview4" type="SubViewportContainer" parent="." unique_id=511839514 node_paths=PackedStringArray("apparatus")]
 layout_mode = 2
@@ -65,6 +72,7 @@ size = Vector2i(384, 324)
 render_target_update_mode = 4
 
 [node name="Apparatus" parent="Subview4/SubViewport" unique_id=2141407468 instance=ExtResource("2_kmerg")]
+ball_prefab = ExtResource("6_5lmb2")
 
 [node name="Subview5" type="SubViewportContainer" parent="." unique_id=722385038 node_paths=PackedStringArray("apparatus")]
 layout_mode = 2
@@ -78,6 +86,7 @@ size = Vector2i(384, 324)
 render_target_update_mode = 4
 
 [node name="Apparatus" parent="Subview5/SubViewport" unique_id=1102476268 instance=ExtResource("2_kmerg")]
+ball_prefab = ExtResource("7_i2s1c")
 
 [node name="Subview6" type="SubViewportContainer" parent="." unique_id=1845164933 node_paths=PackedStringArray("apparatus")]
 layout_mode = 2
@@ -91,3 +100,4 @@ size = Vector2i(384, 324)
 render_target_update_mode = 4
 
 [node name="Apparatus" parent="Subview6/SubViewport" unique_id=2047809706 instance=ExtResource("2_kmerg")]
+ball_prefab = ExtResource("8_slq1j")

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bitbkn555u54c"]
+
+[ext_resource type="PackedScene" uid="uid://xgga3p8m3cq" path="res://Scenes/ball_red.tscn" id="1_a4l3g"]
+[ext_resource type="Shader" uid="uid://bfulpa3m81sxp" path="res://Shaders/ball.gdshader" id="2_ci7hx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_edwy2"]
+shader = ExtResource("2_ci7hx")
+shader_parameter/color = Color(0.71, 0.24139997, 0.57723, 1)
+shader_parameter/gold = Color(0.9418873, 0.94188714, 3.85046e-06, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ci7hx"]
+resource_local_to_scene = true
+radius = 64.03124
+
+[node name="Ball" unique_id=1976487676 instance=ExtResource("1_a4l3g")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=900814463]
+material = SubResource("ShaderMaterial_edwy2")
+
+[node name="Sprite2D" parent="Sprite2D2" parent_id_path=PackedInt32Array(874617699) index="0" unique_id=530081239]
+region_rect = Rect2(32.29602, 292.17743, 234.30011, 269.50006)
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=1025376850]
+shape = SubResource("CircleShape2D_ci7hx")

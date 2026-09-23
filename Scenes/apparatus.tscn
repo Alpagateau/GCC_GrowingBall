@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://dd3b7obikakn4"]
 
 [ext_resource type="Script" uid="uid://clqeah4jao4e8" path="res://Scenes/test_apparatus.gd" id="1_0210a"]
-[ext_resource type="PackedScene" uid="uid://xgga3p8m3cq" path="res://Scenes/ball.tscn" id="2_pqdvx"]
+[ext_resource type="PackedScene" uid="uid://xgga3p8m3cq" path="res://Scenes/ball_red.tscn" id="2_pqdvx"]
 [ext_resource type="Texture2D" uid="uid://bxqt4gus0f506" path="res://Images/arena_bg.png" id="3_kq0j3"]
 [ext_resource type="PackedScene" uid="uid://dboykm0mrelrb" path="res://Scenes/charging_bar.tscn" id="4_titcl"]
 [ext_resource type="Texture2D" uid="uid://bdjashxfoedgn" path="res://icon.svg" id="5_5i0ox"]
+[ext_resource type="VideoStream" uid="uid://c678geyxjewc8" path="res://Images/output.ogv" id="7_kq0j3"]
 [ext_resource type="Texture2D" uid="uid://bnjb53fqw8048" path="res://Images/arena.png" id="7_pqdvx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kjfgv"]
@@ -20,6 +21,22 @@ size = Vector2(50.000137, 19.999771)
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_0210a")
 ball_prefab = ExtResource("2_pqdvx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=71524569]
+layer = -1
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="CanvasLayer" unique_id=2080010028]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stream = ExtResource("7_kq0j3")
+autoplay = true
+expand = true
+loop = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=870962571]
 scale = Vector2(0.99999994, 0.99999994)

@@ -15,6 +15,7 @@ var current_focus : Control = null
 var original_rect : Rect2 
 
 func _process(_delta: float) -> void:
+	if Engine.is_editor_hint(): return
 	if Input.is_key_pressed(KEY_A):
 		if current_focus == null:
 			_start_focus(get_children()[randi_range(0, get_child_count()-1)])
